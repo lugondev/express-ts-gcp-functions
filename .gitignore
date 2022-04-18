@@ -1,0 +1,7 @@
+# Functions
+/functions/node_modules
+/functions/lib
+/functions/*.log
+
+node_modules
+.idea

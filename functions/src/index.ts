@@ -1,8 +1,9 @@
 import * as functions from 'firebase-functions';
-import cors from 'cors';
-import express from 'express';
+import * as cors from 'cors';
+import * as express from 'express';
 import {functionsConfig} from './functions-config';
 import {analysisFunction} from "./analysis.function";
+import {router as authRouter} from './auth';
 
 // CORS configuration.
 const options: cors.CorsOptions = {
@@ -20,10 +21,11 @@ export const httpFunction = functions.https.onRequest((request: functions.Reques
 });
 
 // Add here other functions.
-app.get("/info", async (req, res) => {
+app.get("/timestamp", async (req, res) => {
     res.send(`${JSON.stringify({
         time: Math.floor(Date.now() / 1000)
     })}`)
 })
 
 export const api = functions.https.onRequest(app)
+export const auth = functions.https.onRequest(authRouter)

@@ -2,7 +2,6 @@
   "functions": {
     "predeploy": "npm --prefix functions run build",
     "source": "functions",
-
     "runtime": "nodejs16"
   },
   "emulators": {
@@ -11,6 +10,15 @@
     },
     "ui": {
       "enabled": true
+    },
+    "auth": {
+      "port": 9099
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "database": {
+      "port": 9000
     }
   }
 }
